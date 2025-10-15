@@ -6,21 +6,24 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 @given('Open Target page home page')
 def open_target(context):
     context.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     context.driver.get('https://www.target.com/')
+    sleep(10)
+
+@when('User sign in button')
+def clicks_sign_in(context, sign_button):
     sleep(5)
+    sign_in__button=context.driver.find_element(By.XPATH,"//button[@data-test='accountNav-signIn']")
+    sign_in_button.click()
 
-
-@when('User clicks on cart button')
-def clicks_cart(context, cart_button):
-    cart_button=context.driver.find_element(By.XPATH,"//use[@href='/icons/Cart.svg#Cart']")
-    cart_button.click()
-
-@then('User sees a message " your cart is empty"')
+@then('User sees sign in button')
 def verify_message(context):
-    message=context.driver.find_element(By.XPATH,"//div[@data-test='boxEmptyMsg']")
-    assert "Your cart is empty" in message, f"Expected message not found. Found:{message}"
+    sign_in__button = context.driver.find_element(By.XPATH, "//button[@data-test='accountNav-signIn']")
+    assert sign_in__button.is_displayed()
+
+
 
 
