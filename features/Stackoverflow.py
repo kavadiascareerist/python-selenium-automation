@@ -9,7 +9,7 @@ driver_path = ChromeDriverManager().install()
 
 # create a new Chrome browser instance
 service = Service(driver_path)
-driver = webdriver.Chrome(service=service)
+drive = webdriver.Chrome(service=service)
 driver.maximize_window()
 
 driver.get('https://stackoverflow.com/users/signup')
