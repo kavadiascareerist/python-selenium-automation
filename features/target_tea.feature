@@ -1,6 +1,7 @@
-# Created by mwunguramugabe at 10/15/25
-Feature: # Enter feature name here
-  # Enter feature description here
+Feature: Test Scenarios for Search functionality
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: User can search for tea
+    Given Open Target page home page
+    When Input tea into search button
+    And Click on search icon
+    Then tea is displayed in search box

@@ -1,6 +1,7 @@
-# Created by mwunguramugabe at 10/15/25
-Feature: # Enter feature name here
-  # Enter feature description here
+Feature: Add item to Target cart
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: Add item to cart and verify it is added
+    Given User is on target home page
+    When user search item
+    And user adds item to the cart
+    Then user should see item in the cart
