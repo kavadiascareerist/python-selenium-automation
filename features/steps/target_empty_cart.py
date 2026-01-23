@@ -6,9 +6,10 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-@given('Open Target page home page')
+@when('user open target ')
 def open_target(context):
     context.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    context.driver.maximize_window()
     context.driver.get('https://www.target.com/')
     sleep(5)
 
