@@ -15,13 +15,15 @@ def open_target(context):
 
 
 @when('User clicks on cart button')
-def clicks_cart(context, cart_button):
-    cart_button=context.driver.find_element(By.XPATH,"//use[@href='/icons/Cart.svg#Cart']")
+def clicks_cart(context):
+    sleep(3)
+    cart_button=context.driver.find_element(By.CSS_SELECTOR,'[data-test="@web/CartLink"]')
     cart_button.click()
 
 @then('User sees a message " your cart is empty"')
 def verify_message(context):
-    message=context.driver.find_element(By.XPATH,"//div[@data-test='boxEmptyMsg']")
-    assert "Your cart is empty" in message, f"Expected message not found. Found:{message}"
+    sleep(5)
+    message=context.driver.find_element(By.XPATH,"//div[@data-test='boxEmptyMsg']").text
+    assert "Your cart is empty" in message, f"Expected message: 'Your cart is empty' not found. Found:{message}"
 
 

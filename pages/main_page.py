@@ -1,6 +1,4 @@
-from selenium import webdriver
+from pages.base_page import Page
 
-def get_driver():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    return driver
+class MainPage(Page):
+    pass
